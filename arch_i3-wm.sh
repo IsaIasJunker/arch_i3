@@ -2,12 +2,11 @@
 
 # Propósito: Instalar i3-wm en arch linux 
 
-entorno=(
+instalar_i3=(
 i3-wm
 i3status
 dmenu
 alacritty
-sddm
 )
 
 aplicaciones=(
@@ -26,6 +25,12 @@ actualizar(){
     sudo pacman -S --noconfirm
 }
 
+
+cambiar_layaout(){
+    sudo localectl set-keymap la-latin1
+    sudo localectl set-x11-keymap latam
+}
+
 instalar_yay (){
     sudo pacman -Syu --noconfirm
     sudo pacman -S --noconfirm --needed base-devel git
@@ -42,17 +47,17 @@ instalar_aplicaciones(){
     sudo pacman -S --noconfirm "${aplicaciones[@]}"
 }
 
-activar_sddm(){
+instalar_sddm(){
+    sudo pacman -S --noconfirm sddm
+
     sudo systemctl enable sddm.service
 }
     
-main(
+main(){
     actualizar
     instalar_yay
-    instalar_entorno
-    instalar_aplicaciones
-    activar_sddm
-)
+    instalar_i3
+}
 
 
 main
