@@ -13,6 +13,7 @@ nwg-look
 network-manager-applet
 fastfetch
 htop
+bash-completion
 )
 
 # Cambio el layout del teclado a latam
@@ -22,7 +23,7 @@ cambiar_layaout(){
 }
 # Instalo lightdm y lo habilito
 instalar_display_manager(){
-    sudo pacman -S lightdm-gtk-greeter
+    sudo pacman -S -- noconfirm lightdm-gtk-greeter
     sudo systemctl enable lightdm.service
 }
 
@@ -33,10 +34,15 @@ instalar_i3(){
 
 # Instalo el helper yay
 instalar_yay(){
-    sudo pacman -S --noconfirm --needed base-devel
-    git -C $HOME clone https://aur.archlinux.org/yay.git
-    cd $HOME/yay/
+    sudo pacman -S --noconfirm --needed base-devel git
+    cd "$HOME"
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
     makepkg -si 
+}
+
+copiar_configuracion(){
+    cp ./configs/config ~/.config/i3/config
 }
 
 # Ejecuto de forma secuencial las funciones
@@ -45,6 +51,7 @@ main(){
     instalar_i3
     instalar_display_manager
     instalar_yay
+    copiar_configuracion
 }
 
 main
