@@ -23,7 +23,7 @@ cambiar_layaout(){
 }
 # Instalo lightdm y lo habilito
 instalar_display_manager(){
-    sudo pacman -S -- noconfirm lightdm-gtk-greeter
+    sudo pacman -S --noconfirm lightdm-gtk-greeter
     sudo systemctl enable lightdm.service
 }
 
