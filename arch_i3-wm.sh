@@ -3,11 +3,12 @@
 # Propósito: Instalar i3-wm en arch linux 
 
 componentes_i3=(
+nano
 i3-wm
 i3status
 dmenu
 alacritty
-nano
+network-manager-applet
 )
 
 cambiar_layaout(){
@@ -15,17 +16,20 @@ cambiar_layaout(){
     sudo localectl set-x11-keymap latam
 }
 
-instalar_i3(){
-    sudo pacman -S --noconfirm "${entorno[@]}"
+instalar_display_manager(){
+    sudo pacman -S lightdm-gtk-greeter
+    sudo systemctl enable lightdm.service
 }
 
-instalar_aplicaciones(){
-    sudo pacman -S --noconfirm "${aplicaciones[@]}"
+instalar_i3(){
+    sudo pacman -S --noconfirm "${componentes_i3[@]}"
 }
+
 
 main(){
     cambiar_layaout
     instalar_i3
+    instalar_display_manager
 }
 
 main
