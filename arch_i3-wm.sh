@@ -2,11 +2,12 @@
 
 # Propósito: Instalar i3-wm en arch linux 
 
-instalar_i3=(
+componentes_i3=(
 i3-wm
 i3status
 dmenu
 alacritty
+nano
 )
 
 aplicaciones=(
@@ -39,7 +40,7 @@ instalar_yay (){
     makepkg -si
 }
 
-instalar_entorno(){
+instalar_i3(){
     sudo pacman -S --noconfirm "${entorno[@]}"
 }
 
@@ -55,9 +56,10 @@ instalar_sddm(){
     
 main(){
     actualizar
+    cambiar_layaout
     instalar_yay
     instalar_i3
+    instalar_sddm
 }
-
 
 main
