@@ -61,4 +61,5 @@ main(){
     configurar_polybar
     configurar_rofi
 }
+
 main
