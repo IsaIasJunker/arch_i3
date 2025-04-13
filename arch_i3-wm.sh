@@ -16,6 +16,7 @@ bash-completion
 rofi
 polybar
 ttf-meslo-nerd
+nitrogen
 )
 
 # Cambio el layout del teclado a latam

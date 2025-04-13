@@ -1,6 +1,5 @@
 
 set $mod Mod4
-set $filemanager thunar
 
 # Fuente de todo el entorno de escritorio
 font pango:Meslo LGM Nerd Font 14
@@ -8,7 +7,7 @@ font pango:Meslo LGM Nerd Font 14
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec_alway --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
